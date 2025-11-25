@@ -1,4 +1,3 @@
-````markdown
 # 🛡️ BataCheck-UDLAP | Intelligent Lab Safety Monitor
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python)
@@ -60,13 +59,16 @@ A **Vision Transformer (ViT-Tiny)** is integrated into the inference loop as a s
 ### User Interface (UX)
 A clean design adapted to UDLAP's graphic identity.
 
-![Main Interface](src/static/demo_interface.png)
+<p align="center">
+  <img src="src/static/demo_interface.png" alt="Main Interface" width="700">
+</p>
 
 ### Engineer Mode (Debug View)
 The system allows real-time visualization of how the algorithm "sees" the image after the LAB + CLAHE filtering stage.
 
-![Preprocessing Pipeline](src/static/pipeline_demo.png)
-    
+<p align="center">
+  <img src="src/static/pipeline_demo.png" alt="Preprocessing Pipeline" width="700">
+</p>
 
 ---
 
@@ -92,11 +94,11 @@ This project is autonomous and requires no external APIs. All processing is perf
 * Functional Webcam
 
 ### Steps
+
 1. **Clone the repository:**
    ```bash
    git clone [https://github.com/JoniSrMonfil/BataCheck-UDLAP.git](https://github.com/JoniSrMonfil/BataCheck-UDLAP.git)
    cd BataCheck-UDLAP
-````
 
 2.  **Install dependencies:**
 
