@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Acceso - UDLAP</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header>
+        <img src="{{ url_for('static', filename='logo_udlaptop.jpg') }}" alt="Logo UDLAP" class="header-logo">
+        <h1>LABORATORIO - VERIFICACION DE BATAS </h1>
+    </header>
+
+    <main class="container">
+        <div class="video-panel">
+            <div class="video-container inactive" id="video-box">
+                <img src="{{ url_for('video_feed') }}" alt="Video en Vivo">
+                <div class="scan-line hidden" id="scan-line"></div>
+            </div>
+            
+            <div style="margin-top: 10px; text-align: center;">
+                <button onclick="toggleDebug()" style="background: transparent; border: 1px solid #555; color: #777; font-size: 0.8rem; padding: 5px 10px; cursor: pointer;">
+                    Ver Preprocesamiento
+                </button>
+            </div>
+        </div>
+
+        <div class="control-panel">
+            
+            <div id="state-waiting" class="control-card active">
+                <h2>Bienvenido</h2>
+                <p class="instruction">Colócate frente a la cámara vistiendo tu bata y presiona el botón para iniciar.</p>
+                <button onclick="startScanning()" class="btn-main">ESCANEAR BATA</button>
+            </div>
+
+            <div id="state-scanning" class="control-card hidden">
+                <div class="loader"></div>
+                <h2>Escaneando...</h2>
+                <p>Por favor, mantente quieto por unos segundos.</p>
+            </div>
+
+            <div id="state-success" class="control-card hidden">
+                <svg class="icon-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <h2 class="text-success">ACCESO PERMITIDO</h2>
+                <p>Bata detectada correctamente.</p>
+                <button onclick="resetSystem()" class="btn-reset">SIGUIENTE ALUMNO</button>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

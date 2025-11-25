@@ -1,0 +1,155 @@
+:root {
+    /* Colores*/
+    --udlap-orange-brand: #ea7929; 
+    --success: #28a745;
+    --bg-dark: #121212;
+    --card-bg: #1e1e1e;
+    --text-main: #ffffff;
+}
+
+body {        
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    background-color: var(--udlap-orange-brand);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.header-logo {
+    height: 60px;
+    border-radius: 8px;
+
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-align: right; 
+}
+
+/* Layout Principal */
+.container {
+    display: flex;
+    flex: 1;
+    padding: 2rem;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Panel de Video */
+.video-panel {
+    flex: 1;
+    max-width: 640px;
+}
+
+.video-container {
+    width: 100%;
+    border: 4px solid #333;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: border-color 0.3s ease;
+}
+
+.video-container img {
+    width: 100%;
+    display: block;
+}
+
+/* Estados visuales del contenedor de video */
+.video-container.active { border-color: var(--udlap-orange-brand); }
+.video-container.success { border-color: var(--success); }
+.video-container.inactive { border-color: #444; opacity: 0.7; }
+
+.scan-line {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 4px;
+    background: var(--udlap-orange-brand);
+    box-shadow: 0 0 15px var(--udlap-orange-brand);
+    animation: scan 2s infinite linear;
+}
+.hidden { display: none !important; }
+@keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
+
+/* Panel de Control (Derecha) */
+.control-panel {
+    flex: 1;
+    max-width: 500px;
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    padding: 3rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.control-card {
+    display: none;
+    width: 100%;
+    animation: fadeIn 0.4s ease;
+}
+.control-card.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+h2 { font-size: 2.2rem; margin-bottom: 1rem; }
+.instruction { font-size: 1.2rem; color: #ccc; margin-bottom: 2.5rem; }
+.text-success { color: var(--success); }
+
+/* Botones */
+button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: none;
+    padding: 1.2rem 3rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.btn-main {
+    background-color: var(--udlap-orange-brand);
+    color: white;
+    box-shadow: 0 4px 15px rgba(233, 77, 26, 0.4);
+}
+.btn-main:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(233, 77, 26, 0.6); }
+.btn-main:active { transform: translateY(1px); }
+
+.btn-reset {
+    background-color: #444;
+    color: white;
+    margin-top: 1rem;
+}
+.btn-reset:hover { background-color: #555; }
+
+/* Loader e Iconos */
+.loader {
+    border: 8px solid #333;
+    border-top: 8px solid var(--udlap-orange-brand);
+    border-radius: 50%;
+    width: 70px; height: 70px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 2rem auto;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+.icon-success { width: 100px; height: 100px; stroke: var(--success); margin-bottom: 1rem; }
