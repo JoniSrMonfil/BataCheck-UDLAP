@@ -15,7 +15,7 @@ app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
 
 # Configuracion
 MODEL_PATH = os.path.join('models','best.pt')
-CONF_THRESHOLD = 0.85 
+CONF_THRESHOLD = 0.84
 ALERT_FRAMES_TRIGGER = 15
 VIT_MODEL_NAME = 'vit_tiny_patch16_224.augreg_in21k_ft_in1k' 
 
