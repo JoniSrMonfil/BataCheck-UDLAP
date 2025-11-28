@@ -25,6 +25,19 @@ The primary goal is to automate the enforcement of safety protocols within acade
 
 ---
 
+## 📉 Evolution: Why Classic Vision Failed?
+
+Before implementing Deep Learning, we tested a purely classical approach using **HSV Color Segmentation**.
+
+**The Result:** The algorithm failed to distinguish semantic objects. It incorrectly identified walls, paper sheets, and casual white clothing as "Lab Coats" due to simple color matching.
+
+<p align="center">
+  <img src="src/static/classic_failure.png" alt="Failed Classic Experiment" width="700">
+  <br>
+  <em>Fig 1: Initial experiment showing false positives (walls/papers) using basic Computer Vision. This failure justified the move to a Hybrid Deep Learning architecture.</em>
+</p>
+
+
 ## 🏗️ System Architecture & Technical Specifications
 
 Unlike standard solutions relying solely on a neural network, **BataCheck** implements a robust **4-stage processing pipeline** (Cascade Model) to ensure reliability under variable lighting and "clothing camouflage."
