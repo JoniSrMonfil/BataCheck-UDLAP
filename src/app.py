@@ -45,7 +45,7 @@ try:
     # Transformaciones necesarias para el ViT
     data_config = timm.data.resolve_model_data_config(vit_model)
     vit_transforms = timm.data.create_transform(**data_config, is_training=False)
-    print(">>> Sistema Híbrido (CNN + Transformer) ONLINE.")
+    print("Sistema Híbrido (CNN + Transformer).")
 except Exception as e:
     print(f"Advertencia: ViT no pudo cargarse ({e}). Se usará solo YOLO.")
     vit_model = None
@@ -54,7 +54,7 @@ except Exception as e:
 def preprocess_pipeline(image):
     """
     Técnica Avanzada: CLAHE en espacio de color LAB.
-    Mejora la visibilidad de texturas (arrugas, botones) sin perder el color blanco.
+    Mejora la visibilidad de texturas (arrugas, botones) sin perder el color principal.
     """
     # 1. Convertir de BGR a LAB
     lab = cv2.cvtColor(image, cv2.COLOR_BGR2LAB)
@@ -117,7 +117,6 @@ def generate_frames():
                                         _ = vit_model(input_tensor) # Ejecución real del ViT
                                 except:
                                     pass
-                        # ---------------------------------------------
 
                         coat_confirmed = True
                         # Dibujamos en el frame que ve el usuario
